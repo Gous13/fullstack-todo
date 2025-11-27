@@ -1,0 +1,48 @@
+# =============================
+# Node / React
+# =============================
+frontend/node_modules/
+frontend/build/
+frontend/.env
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+
+# =============================
+# Python / Flask
+# =============================
+backend/venv/
+backend/__pycache__/
+backend/*.pyc
+backend/.env
+
+# SQLite database
+backend/*.db
+
+
+# =============================
+# OS generated files
+# =============================
+.DS_Store
+Thumbs.db
+
+
+# =============================
+# IDE Related
+# =============================
+.vscode/
+.idea/
+*.swp
+
+
+# =============================
+# Python Byte-compiled
+# =============================
+*.pyo
+*.pyd
+*.pdb
+*.egg-info/
+.eggs/
