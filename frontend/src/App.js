@@ -7,7 +7,7 @@ function App() {
   const [tasks, setTasks] = useState([]);
 
   // Backend API hosted on Render
-  const API_BASE = process.env.REACT_APP_API_URL || "https://fullstack-todo-xzj3.onrender.com";
+  const API_BASE = process.env.REACT_APP_API_URL || "https://fullstack-backend-nyzi.onrender.com";
 
   const fetchTasks = async () => {
     try {
