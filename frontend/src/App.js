@@ -6,28 +6,41 @@ function App() {
   const [task, setTask] = useState("");
   const [tasks, setTasks] = useState([]);
 
-  const API_BASE = process.env.REACT_APP_API_URL || "http://127.0.0.1:5000";
+  // Backend API hosted on Render
+  const API_BASE = process.env.REACT_APP_API_URL || "https://fullstack-todo-xzj3.onrender.com";
 
   const fetchTasks = async () => {
-    const res = await axios.get(`${API_BASE}/tasks`);
-    setTasks(res.data);
+    try {
+      const res = await axios.get(`${API_BASE}/tasks`);
+      setTasks(res.data);
+    } catch (error) {
+      console.error("Error fetching tasks:", error);
+    }
   };
 
   const addTask = async () => {
     if (!task.trim()) return;
-    await axios.post(`${API_BASE}/add`, { task });
-    setTask("");
-    fetchTasks();
+    try {
+      await axios.post(`${API_BASE}/add`, { task });
+      setTask("");
+      fetchTasks();
+    } catch (error) {
+      console.error("Error adding task:", error);
+    }
   };
 
   const deleteTask = async (id) => {
-    await axios.delete(`${API_BASE}/delete/${id}`);
-    fetchTasks();
+    try {
+      await axios.delete(`${API_BASE}/delete/${id}`);
+      fetchTasks();
+    } catch (error) {
+      console.error("Error deleting task:", error);
+    }
   };
 
   useEffect(() => {
     fetchTasks();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className="container">
